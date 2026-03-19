@@ -49,7 +49,7 @@ sistema_notas_escolares/
 
 ```bash
 git clone https://github.com/zcypis/sistema_notas_escolares.git
-cd sistema_notas_escolares
+cd Gestao_Academica
 python main.py
 ```
 
