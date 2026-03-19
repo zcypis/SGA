@@ -1,10 +1,10 @@
-# 🎓 Sistema de Notas Escolares
+# Sistema de Notas Escolares
 
 Sistema de gerenciamento dados academicos via terminal, desenvolvido em Python puro. Permite registrar alunos, ver notas, acompanhar desempenho e manter os dados entre sessões — sem nenhuma dependência externa.
 
 ---
 
-## 📋 Funcionalidades
+## Funcionalidades
 
 - Registrar aluno com nome e notas personalizadas
 - Buscar aluno pelo nome
@@ -14,7 +14,7 @@ Sistema de gerenciamento dados academicos via terminal, desenvolvido em Python p
 
 ---
 
-## 📐 Critério de desempenho
+## Critério de desempenho
 
 | Média        | Situação        |
 |--------------|-----------------|
@@ -24,7 +24,7 @@ Sistema de gerenciamento dados academicos via terminal, desenvolvido em Python p
 
 ---
 
-## 🗂️Estrutura do projeto
+## Estrutura do projeto
 
 ```
 sistema_notas_escolares/
@@ -40,7 +40,7 @@ sistema_notas_escolares/
 
 ---
 
-## ❓ Como usar
+## Como usar
 
 ### Pré-requisitos
 - Python 3.10 ou superior
@@ -48,7 +48,7 @@ sistema_notas_escolares/
 ### Executando o projeto
 
 ```bash
-git clone https://github.com/zcypis/py-studyng
+git clone https://github.com/zcypis/sistema_notas_escolares.git
 cd sistema_notas_escolares
 python main.py
 ```
@@ -65,7 +65,7 @@ python main.py
 
 ---
 
-## 🧱 Arquitetura
+## Arquitetura
 
 O projeto segue o princípio de **separação de responsabilidades** — cada módulo tem uma função clara e independente:
 
@@ -79,7 +79,7 @@ O projeto segue o princípio de **separação de responsabilidades** — cada m�
 
 ---
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 - Python 3.10+
 - Somente biblioteca padrão — `json`
@@ -87,7 +87,7 @@ O projeto segue o princípio de **separação de responsabilidades** — cada m�
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
 **Guilherme Xavier**
 - GitHub: [@zcypis](https://github.com/zcypis)
