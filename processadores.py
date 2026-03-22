@@ -1,6 +1,5 @@
 from validadores import *
 
-
 # --- Processadores de dados ----------
 def registrar_aluno(cadastro: dict, aluno: str, notas: list[float]) -> None:
     nome_normalizado = aluno.strip().lower()

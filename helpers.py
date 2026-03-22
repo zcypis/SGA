@@ -1,6 +1,5 @@
 from validadores import *
 
-
 # --- Ler Dados --------
 def ler_nome(prompt: str) -> str:
     if not isinstance(prompt, str):

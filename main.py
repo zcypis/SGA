@@ -8,11 +8,12 @@ def main():
     cadastro = carregar_dados()
 
     while True:
-        print('\n=== SISTEMA DE ALUNOS ===')
+        print('\n=== Gestão Acadêmica ===')
         print('[1] - Registrar aluno')
         print('[2] - Buscar aluno')
         print('[3] - Listar todos')
-        print('[4] - Sair...\n')
+        print('[4] - Sair...')
+        print('=========================\n')
 
         opcao = input('Escolha uma opção: ').strip()
 

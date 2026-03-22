@@ -1,6 +1,6 @@
-# --- Salvar Dados ------
 import json
 
+# --- Salvar Dados ------
 def salvar_dados(cadastro: dict) -> None:
     with open('dados_alunos.json', 'w') as f:
         json.dump(cadastro, f, indent=4)
