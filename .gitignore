@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 dados_alunos.json
 .vscode/
+.venv/
+venv/
