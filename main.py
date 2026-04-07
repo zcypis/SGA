@@ -19,6 +19,11 @@ def main():
 
         if opcao == '1':
             nome = ler_nome('Nome: ')
+
+            if nome.strip() in carregar_dados():
+                print(f'\nAluno {nome.title()} já registrado nos Dados dos alunos, informe um nome diferente.')
+                continue
+
             qtd_notas = ler_quantidade_nota('Quantas notas quer informar: ')
             notas = ler_nota('Nota: ', qtd_notas)
 
@@ -40,7 +45,7 @@ def main():
                 print(error)
                 continue
 
-            print(f'Aluno: {resultado["nome"]}')
+            print(f'\nAluno: {resultado["nome"]}')
             print(f'Notas: {resultado["notas"]}')
 
         elif opcao == '3':
@@ -52,9 +57,9 @@ def main():
                 continue
 
             for aluno in listagem:
-                print(f'Aluno: {aluno["nome"]}')
+                print(f'\nAluno: {aluno["nome"]}')
                 print(f'Media: {aluno["media"]}')
-                print(f'Situacao: {aluno["situacao"]}')
+                print(f'Situacao: {aluno["situacao"]}\n')
 
         elif opcao == '4':
             salvar_dados(cadastro)
