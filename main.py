@@ -47,6 +47,9 @@ def main():
                 print(error)
                 continue
 
+            else:
+                salvar_dados(cadastro)
+
             print(
                 "",
                 Panel(
