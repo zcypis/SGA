@@ -10,7 +10,7 @@
 ## Demo
 
 <p align="center">
-  <img src=".github/demo.gif" width="500">
+  <img src=".github/demo.gif" width="600">
 </p>
 
 ---
