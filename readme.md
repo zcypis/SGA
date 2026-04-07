@@ -1,6 +1,6 @@
 # SGA — Sistema de Gestão Acadêmica
 
-> Gerenciamento de alunos e notas via terminal, desenvolvido em Python puro — sem dependências externas.
+> Gerenciamento de alunos e notas via terminal, desenvolvido em Python 3.10+.
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/Licença-MIT-green)](LICENSE)
@@ -9,13 +9,13 @@
 
 ## Demo
 
->  ![Demo](.github/demo.gif)
+>  Em Breve...
 
 ---
 
 ## Visão Geral
 
-O SGA permite registrar alunos, consultar notas, acompanhar desempenho e persistir os dados entre sessões, tudo pelo terminal. O projeto foi desenvolvido com foco em **separação de responsabilidades** e **robustez na entrada de dados**, mantendo cada módulo com uma única função bem definida e todo input do usuário rigorosamente validado antes de qualquer processamento.
+O SGA permite registrar alunos, consultar notas, acompanhar desempenho e manter os dados entre sessões, tudo pelo terminal. O projeto foi desenvolvido com foco em **separação de responsabilidades** e **robustez na entrada de dados**, mantendo cada módulo com uma única função bem definida e todo input do usuário rigorosamente validado antes de qualquer processamento.
 
 ---
 
@@ -41,13 +41,11 @@ O SGA permite registrar alunos, consultar notas, acompanhar desempenho e persist
 
 ## Destaques Técnicos
 
-Esses pontos foram decisões conscientes de design — não apenas convenções seguidas automaticamente.
-
 **Type hints em todas as funções**
 Todas as assinaturas usam type hints (`str`, `int`, `float`, `list[float]`, `dict`), tornando o contrato de cada função explícito e o código autodocumentado sem depender de comentários.
 
 **Separação entre `TypeError` e `ValueError`**
-A validação distingue erro de *tipo* (recebeu `int` onde esperava `str`) de erro de *valor* (recebeu `str` vazia ou nota fora do intervalo). Isso permite que quem chama a função trate cada caso de forma apropriada.
+A validação distingue erro de *tipo* (recebeu `int` onde esperava `str`) de erro de *valor* (recebeu `str` vazia ou nota invalida). Isso permite que quem chama a função trate cada caso de forma adequada.
 
 **Validação na camada de entrada, não no processamento**
 `helpers.py` garante que o dado chega limpo aos processadores — `processadores.py` nunca precisa se defender de input malformado. Essa separação segue o princípio de *fail fast* e mantém a lógica de negócio livre de ruído.
@@ -56,7 +54,7 @@ A validação distingue erro de *tipo* (recebeu `int` onde esperava `str`) de er
 `validar_nota()` recebe `str` intencionalmente: assim é possível checar casas decimais (ex: `"8.55"` é rejeitado, `"8.5"` é aceito) antes de converter para `float` — algo impossível se o `float` já chegasse convertido.
 
 **`json` em vez de `sqlite3`**
-Ambos são stdlib. A escolha por JSON priorizou legibilidade direta do arquivo de dados e zero configuração, adequado para o escopo do projeto. A limitação (sem queries, sem índices) é reconhecida e endereçada no roadmap.
+Ambos são stdlib. A escolha por JSON foi pela simplicidade de arquivo de dados e zero configuração, adequado para o projeto simples mas bem estruturado.
 
 ---
 
@@ -64,12 +62,12 @@ Ambos são stdlib. A escolha por JSON priorizou legibilidade direta do arquivo d
 
 ```
 SGA/
-├── main.py            # Menu interativo e loop principal
-├── validadores.py     # Validação de nome, nota e lista de notas
-├── processadores.py   # Lógica de negócio: registrar, buscar, listar
-├── helpers.py         # Leitura e tratamento de input do usuário
-├── dados.py           # Persistência: carregar e salvar em JSON
-├── dados_alunos.json  # Banco de dados local (gerado automaticamente)
+├── main.py              # Menu interativo e loop principal
+├── validadores.py       # Validação de nome, nota e lista de notas
+├── processadores.py     # Lógica de negócio: registrar, buscar, listar
+├── helpers.py           # Leitura e tratamento de input do usuário
+├── dados.py             # Persistência: carregar e salvar em JSON
+├── dados_alunos.json    # Banco de dados local (gerado automaticamente)
 ├── .gitignore
 └── README.md
 ```
@@ -92,7 +90,7 @@ main.py
 | `validadores.py`    | Valida dados brutos antes de qualquer processamento                        |
 | `processadores.py`  | Lógica de negócio: registrar, buscar e listar alunos                       |
 | `helpers.py`        | Lê e trata o input do usuário; converte para tipos corretos                |
-| `dados.py`          | Abstrai carregamento e salvamento no arquivo JSON                          |
+| `dados.py`          | Responsavel pelo salvamento e carregamento do dados em JSON                          |
 | `main.py`           | Orquestra os módulos e exibe o menu                                        |
 
 ---
@@ -101,17 +99,16 @@ main.py
 
 ### Pré-requisitos
 
-- Python 3.10 ou superior
+- Python 3.10+, rich
 
 ### Instalação
 
 ```bash
 git clone https://github.com/zcypis/SGA
 cd SGA
+pip install rich
 python main.py
 ```
-
-Nenhuma instalação de dependências necessária — apenas Python.
 
 ---
 
@@ -121,23 +118,20 @@ O projeto não possui suíte de testes automatizados ainda — está previsto co
 
 ---
 
-## Roadmap
+## Limitações atuais reconhecidas e melhorias planejadas:
 
-Limitações atuais reconhecidas e melhorias planejadas:
-
-- [ ] Cobertura de testes com `unittest` ou `pytest`
+- [ ] Cobertura de testes com `pytest`
 - [ ] Suporte a múltiplas turmas por arquivo
 - [ ] Exportação de relatório em `.csv`
-- [ ] Migração de `json` para `sqlite3` para suportar buscas mais complexas
-- [ ] Interface web simples com Flask
+- [ ] Interface web simples
 
 ---
 
 ## Tecnologias
 
 - **Python 3.10+**
-- Apenas biblioteca padrão (`json`)
-- Sem dependências externas
+- biblioteca padrão (`json`)
+- biblioteca externa necessaria (`rich`)
 
 ---
 
@@ -146,4 +140,5 @@ Limitações atuais reconhecidas e melhorias planejadas:
 **Guilherme Xavier**
 
 [![GitHub](https://img.shields.io/badge/GitHub-zcypis-181717?logo=github)](https://github.com/zcypis)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Guilherme-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/guilherme-xavier-dev)
 [![Email](https://img.shields.io/badge/Email-guilhermexavie3%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:guilhermexavie3@gmail.com)
