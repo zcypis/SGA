@@ -10,7 +10,7 @@
 ## Demo
 
 <p align="center">
-  <img src=".github/demo.gif" width="600">
+  <img src=".github/demo1.gif" width="600">
 </p>
 
 ---
@@ -103,14 +103,18 @@ main.py
 
 - Python 3.10+, rich
 
-### Instalação
+### Instalação / Execução, via Terminal
 
 ```bash
-git clone https://github.com/zcypis/SGA
+git clone https://github.com/zcypis/SGA.git
 cd SGA
-pip install rich
-python main.py
+pip install -r requirements.txt
+py main.py
 ```
+
+<p align="center">
+  <img src=".github/demo2.gif" width="600">
+</p>
 
 ---
 
